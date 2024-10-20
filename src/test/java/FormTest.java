@@ -35,7 +35,7 @@ public class FormTest extends TestBase{
         $("#userNumber").setValue("1111111111"));
 
         step("Заполнение даты рождения", () -> {
-        $("#dateOfBirthInput").click());
+        $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").$("option[value='2000']").click();
         $(".react-datepicker__month-select").$("option[value='7']").click();
         $(".react-datepicker__day--013").click();
@@ -54,13 +54,13 @@ public class FormTest extends TestBase{
         $("#currentAddress").setValue("Kutuzovskaya"));
 
         step("Заполнение штата и города", () -> {
-        $("#react-select-3-input").setValue("NCR").pressEnter());
+        $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#react-select-4-input").setValue("Del").pressEnter();
         $("#submit").click();
     });
 
         step("Результирующая таблица", () -> {
-        $(".table-responsive").shouldHave(text("Egor Test")));
+        $(".table-responsive").shouldHave(text("Egor Test"));
         $(".table-responsive").shouldHave(text("111@11.ru"));
         $(".table-responsive").shouldHave(text("Male"));
         $(".table-responsive").shouldHave(text("1111111111"));
