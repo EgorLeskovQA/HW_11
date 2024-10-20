@@ -20,9 +20,10 @@ public class FormTest extends TestBase{
         step("Открытие страницы регистрации в браузере", () ->
         open("/automation-practice-form"));
 
-        step("Заполнение ФИО", () ->
-        $("#firstName").setValue("Egor"));
+        step("Заполнение ФИО", () -> {
+        $("#firstName").setValue("Egor");
         $("#lastName").setValue("Test");
+    });
 
         step("Заполнение Email", () ->
         $("#userEmail").setValue("111@11.ru"));
@@ -33,11 +34,12 @@ public class FormTest extends TestBase{
         step("Заполнение номера телефона", () ->
         $("#userNumber").setValue("1111111111"));
 
-        step("Заполнение даты рождения", () ->
+        step("Заполнение даты рождения", () -> {
         $("#dateOfBirthInput").click());
         $(".react-datepicker__year-select").$("option[value='2000']").click();
         $(".react-datepicker__month-select").$("option[value='7']").click();
         $(".react-datepicker__day--013").click();
+    });
 
         step("Заполнение предмета", () ->
         $("#subjectsInput").setValue("ma").pressEnter());
@@ -51,13 +53,13 @@ public class FormTest extends TestBase{
         step("Заполнение адресса", () ->
         $("#currentAddress").setValue("Kutuzovskaya"));
 
-        step("Заполнение штата и города", () ->
+        step("Заполнение штата и города", () -> {
         $("#react-select-3-input").setValue("NCR").pressEnter());
         $("#react-select-4-input").setValue("Del").pressEnter();
         $("#submit").click();
+    });
 
-
-        step("Результирующая таблица", () ->
+        step("Результирующая таблица", () -> {
         $(".table-responsive").shouldHave(text("Egor Test")));
         $(".table-responsive").shouldHave(text("111@11.ru"));
         $(".table-responsive").shouldHave(text("Male"));
@@ -68,6 +70,6 @@ public class FormTest extends TestBase{
         $(".table-responsive").shouldHave(text("tst.png"));
         $(".table-responsive").shouldHave(text("Kutuzovskaya"));
         $(".table-responsive").shouldHave(text("NCR Delhi"));
-
+        });
     }
 }
