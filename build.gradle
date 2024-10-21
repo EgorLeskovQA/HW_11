@@ -42,7 +42,7 @@ tasks.withType(Test) {
     }
 }
 
-task form_Test(type: Test) {
+task formTest(type: Test) {
     useJUnitPlatform {
         includeTags("formTest")
     }
