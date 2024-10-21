@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class FormTest extends TestBase{
@@ -19,7 +18,8 @@ public class FormTest extends TestBase{
 
         step("Открытие страницы регистрации в браузере", () ->
         open("/automation-practice-form"));
-
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         step("Заполнение ФИО", () -> {
         $("#firstName").setValue("Egor");
         $("#lastName").setValue("Test");
